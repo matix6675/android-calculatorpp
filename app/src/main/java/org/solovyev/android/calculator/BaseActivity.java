@@ -158,9 +158,10 @@ public abstract class BaseActivity extends AppCompatActivity implements SharedPr
         toolbar = contentView.findViewById(R.id.toolbar);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.R) {
             mainView.setOnApplyWindowInsetsListener((v, windowInsets) -> {
-                final Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars());
+                final Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
                 final ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) v.getLayoutParams();
                 lp.topMargin = insets.top;
+                lp.bottomMargin = insets.bottom;
                 v.setLayoutParams(lp);
                 return WindowInsets.CONSUMED;
             });
